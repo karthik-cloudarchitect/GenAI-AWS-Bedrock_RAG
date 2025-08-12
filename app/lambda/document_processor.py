@@ -1,3 +1,50 @@
+"""
+AWS Lambda Function: Document Processor for RAG System
+=====================================================
+
+This Lambda function processes uploaded documents for the RAG (Retrieval-Augmented
+Generation) system. It handles document parsing, text extraction, chunking, and
+vector embedding generation for semantic search.
+
+Processing Pipeline:
+1. Document upload trigger (S3 event)
+2. Text extraction from various formats (PDF, DOCX, TXT, MD)
+3. Text chunking for optimal embedding generation
+4. Vector embedding creation using AWS Bedrock
+5. Storage in OpenSearch for semantic search
+6. Metadata indexing and status updates
+
+Supported Document Formats:
+- PDF documents
+- Microsoft Word (DOCX)
+- Plain text (TXT)
+- Markdown (MD)
+- HTML files
+
+Features:
+- Automatic language detection
+- Content deduplication
+- Error handling and retry logic
+- Progress tracking and notifications
+- Chunking optimization for context preservation
+
+Environment Variables:
+- OPENSEARCH_ENDPOINT: OpenSearch cluster endpoint
+- BEDROCK_MODEL_ID: Embedding model identifier
+- S3_BUCKET: Source document bucket
+- STATUS_TABLE: DynamoDB table for processing status
+
+Performance Optimizations:
+- Streaming processing for large documents
+- Parallel chunk processing
+- Efficient memory management
+- Timeout handling for large files
+
+Version: 2.1
+Author: RAG System Team
+Last Updated: $(date +'%Y-%m-%d')
+"""
+
 import json
 import os
 import boto3

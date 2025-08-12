@@ -1,9 +1,39 @@
 #!/bin/bash
 
-# CloudOpsPilot GenAI Project - Deployment Script
-# This script deploys the entire RAG system infrastructure and frontend
+#==============================================================================
+# GenAI RAG System Deployment Script
+#==============================================================================
+# This script deploys the complete RAG (Retrieval-Augmented Generation) system
+# including infrastructure, Lambda functions, and frontend components.
+#
+# Deployment Phases:
+# 1. Infrastructure provisioning (Terraform)
+# 2. Lambda function packaging and deployment
+# 3. Frontend build and S3 upload
+# 4. API Gateway configuration
+# 5. OpenSearch index setup
+# 6. Knowledge base initialization
+#
+# Prerequisites:
+# - AWS CLI configured with admin permissions
+# - Terraform installed (version 1.0+)
+# - Node.js for frontend build
+# - Python 3.9+ for Lambda functions
+#
+# Environment Variables:
+# - AWS_REGION: Target AWS region
+# - ENVIRONMENT: Deployment environment (dev/staging/prod)
+# - OPENSEARCH_DOMAIN: OpenSearch cluster name
+#
+# Usage:
+#   ./deploy.sh [environment] [region]
+#   Example: ./deploy.sh prod us-east-1
+#
+# Version: 3.0
+# Last Updated: $(date +'%Y-%m-%d')
+#==============================================================================
 
-set -e  # Exit on any error
+set -euo pipefail
 
 # Colors for output
 RED='\033[0;31m'
