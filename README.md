@@ -1,5 +1,7 @@
 # CloudOpsPilot GenAI Project - AWS Bedrock RAG System
 
+> 🔄 **Recent Updates**: Enhanced documentation, improved error handling, and optimized performance configurations for better user experience.
+
 A comprehensive Retrieval-Augmented Generation (RAG) system built on AWS Bedrock, featuring document processing, vector search, and an intelligent chat interface.
 
 ## 🚀 Features
